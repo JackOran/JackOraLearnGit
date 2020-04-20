@@ -1,2 +1,2 @@
 # JackOraLearnGit
-JackOra的个人博客
+#### 新手博客欢迎访问和纠错
