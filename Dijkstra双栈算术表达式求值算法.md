@@ -66,7 +66,3 @@ public class Evaluate {
 
 ```
 
-![image-20200420145616709](/Users/apple/Library/Application Support/typora-user-images/image-20200420145616709.png)
-
-#### 报错说是pop出错
-
