@@ -1,4 +1,4 @@
-#Python3 collections模块使用
+# Python3 collections模块使用
 
 ###1.Counter(类似于字典)
 
