@@ -1,6 +1,6 @@
 ### Merge Sorted Array（数组合并排序）
 
-***Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.***
+***给定两个已排序的整数数组nums1和nums2，将nums2合并为一个已排序的数组nums1。***
 
 > ```markdown
 > Input:

@@ -1,13 +1,13 @@
 ### Remove Element(移除元素)
 
-***题目：Given an array nums and a value val, remove all instances of that value [in-place](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.***
+***题目：给定一个数组号和一个val值，删除该值的所有实例[in-place](https://en.wikipedia.org/wiki/In-place_algorithm)并返回新的长度。***
 
 > ```markdown
 > Given nums = [3,2,2,3], val = 3,
 > 
-> Your function should return length = 2, with the first two elements of nums being 2.
+> 您的函数应该返回length = 2, nums的前两个元素为2。
 > 
-> It doesn't matter what you leave beyond the returned length.
+> 不管你留下什么超过返回的长度。
 > ```
 
 ```java

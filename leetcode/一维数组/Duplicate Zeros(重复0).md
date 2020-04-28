@@ -1,11 +1,11 @@
 ### Duplicate Zeros(重复0)
 
-***题目：Given a fixed length array `arr` of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.***
+***题目：给定一个固定长度的整数数组“arr”，重复出现的每个0，将其余的元素向右移动。***
 
 > ```markdown
 > Input: [1,0,2,3,0,4,5,0]
 > Output: null
-> Explanation: After calling your function, the input array is modified to: [1,0,0,2,3,0,0,4]
+> 说明:调用函数后，将输入数组修改为:[1,0,0,2,3,0,0,4]
 > ```
 
 ```java

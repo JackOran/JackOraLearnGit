@@ -1,6 +1,6 @@
 ### Valid Mountain Array（有效山阵）
 
-***题目：Given an array `A` of integers, return `true` if and only if it is a valid mountain array.***
+***题目：给定一个整数数组“A”，当且仅当它是一个有效的山地数组时，返回“true”***
 
 > ```markdown
 > Input: [0,3,2,1]
