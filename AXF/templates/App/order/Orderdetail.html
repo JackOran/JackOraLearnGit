@@ -1,0 +1,48 @@
+{% extends 'App/order/order_base.html' %}
+{% block extCSS %}
+    {{ block.super }}
+    <style type="text/css">
+        ul > li > img{
+            width: 3rem;
+        }
+        ul > li > div{
+            float: right;
+        }
+    </style>
+{% endblock %}
+{% block extJS %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(function () {
+            $("#alipay").click(function () {
+                var orderid = $(this).attr("orderid");
+                $.getJSON("/app/alipy/", {"orderid": orderid}, function (data) {
+                    console.log(data);
+                    if (data["status"]=="200"){
+                        window.open(data["redirect"], target="_self");
+                    }
+
+                })
+
+            })
+        })
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <p>订单编号{{ order.id }}</p>
+        <ul>
+            {% for ordergoods in order.ordergoods_set.all %}
+                <li class="clearfix">
+                    <img src="{{ ordergoods.o_goods.productimg }}" alt="{{ ordergoods.o_goods.productlongname }}">
+                    <div>
+                        <span>{{ ordergoods.o_goods.productlongname }}</span>
+                        <p>{{ ordergoods.o_goods_num }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+
+        </ul>
+        <button orderid = {{ order.id }}  id="alipay"  class="btn btn-primary btn-block">支付</button>
+    </div>
+{% endblock %}

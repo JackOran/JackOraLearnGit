@@ -1,0 +1,37 @@
+{% extends "App/user/user_base.html" %}
+{% load static %}
+{% block extJS %}
+    {{ block.super }}
+    <script type="text/javascript" src="/static/App/user/js/user_register.js "></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form action="{% url 'app:user_register' %}" method="post" enctype="multipart/form-data" onsubmit="return data_safe()">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">用户</label>
+                <input id="username" type="text" name="username" class="form-control" placeholder="请输入用户名">
+                <span id="username_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">邮箱</label>
+                <input type="email" name="email" class="form-control" placeholder="请输入邮箱">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">密码</label>
+                <input id="password"  type="text" class="form-control" name="password" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">确认密码</label>
+                <input type="text" class="form-control" id="password_confirm" placeholder="请确认密码">
+                <span id="password_confirm_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">头像</label>
+                <input name="icon" type="file">
+            </div>
+            <input type="submit" value="注册" class="btn btn-success btn-block">
+        </form>
+    </div>
+{% endblock %}

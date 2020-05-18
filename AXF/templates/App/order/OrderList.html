@@ -1,0 +1,37 @@
+{% extends 'App/order/order_base.html' %}
+{% block extJS %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(function () {
+
+            $(".waitpay").click(function () {
+                var pay = $(this);
+                var orderid = pay.attr("orderid");
+                window.open("/app/orderdetail/?orderid="+orderid, target="_self");
+
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <ul>
+            {% for order in orders %}
+                <li>
+                    <p>订单编号{{ order.id }}   <button orderid="{{ order.id }}" class="waitpay btn btn-danger">详情</button> </p>
+                    <ul>
+                        {% for ord in order.ordergoods_set.all %}
+                            <li>
+                                <img src="{{ ord.o_goods.productimg }}" alt="{{ ord.o_goods.productlongname }}">
+                                <span>{{ ord.o_goods.productlongname }}</span>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </li>
+            {% endfor %}
+            
+        </ul>
+    </div>
+{% endblock %}

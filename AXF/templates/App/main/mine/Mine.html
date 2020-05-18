@@ -1,0 +1,138 @@
+{% extends 'App/main/base_main.html' %}
+{% load static %}
+{% block extCSS %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'App/mine/css/mine.css' %}">
+{% endblock %}
+{% block extJS %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'App/mine/js/mine.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="mine">
+        <div class="fixed">
+            {% if is_login %}
+                <span id="icon"><img src="{{ usericon }}"></span>
+            {% else %}
+                <span id="icon" class="glyphicon glyphicon-user"></span>
+            {% endif %}
+            {% if is_login %}
+                <p>{{ username }}</p>
+            {% else %}
+                <p><a href="{% url 'app:user_log_in' %}">not login</a></p>
+            {% endif %}
+            <p>
+                <span class="glyphicon glyphicon-grain"></span>
+                <span>等级</span>
+            </p>
+            <p id="regis">
+                {% if not is_login %}
+                    <a href="{% url 'app:user_register' %}">注册</a>
+                {% endif %}
+            </p>
+            <p>
+                <span class="glyphicon glyphicon-heart"></span>
+                <span>收藏</span>
+            </p>
+        </div>
+        <div class="mine">
+            <p>
+                我的订单<a href="#">更多&gt;</a>
+            </p>
+            <div id="nav">
+                <ul>
+                    <li>
+                        <dl>
+                            <dt id="wait_pay">
+                                <span class="glyphicon glyphicon-usd"></span>
+                                {% if is_login %}
+                                    <span class="badge">{{ order_wait_pay }}</span>
+                                {% endif %}
+                            </dt>
+                            <dd>待付款</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                                {% if is_login %}
+                                    <span class="badge">{{ order_wait_receive }}</span>
+                                {% endif %}
+                            </dt>
+                            <dd>待收货</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </dt>
+                            <dd>待评价</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-retweet"></span>
+                            </dt>
+                            <dd>退款/售后</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <menu>
+                <ul>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-bullhorn"></span>
+                            </dt>
+                            <dd>积分商城</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-bed"></span>
+                            </dt>
+                            <dd>优惠券</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-import"></span>
+                            </dt>
+                            <dd>收货地址</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-earphone"></span>
+                            </dt>
+                            <dd>客户反馈</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-certificate"></span>
+                            </dt>
+                            <dd>关于我们</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </menu>
+            {% if is_login %}
+                <p>
+                    <a href="{% url 'app:user_log_out' %}">退出</a>
+                </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+{% endblock %}
