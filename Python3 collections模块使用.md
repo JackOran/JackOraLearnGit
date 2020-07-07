@@ -18,17 +18,24 @@ cn["a"]
 #删除
 del cn["a"]
 
-#update 加
+#update 加 a1+a2
 a1 = Counter({"a":4,"b":2,"c":4})
 a2 = Counter({"a":3,"b":1,"c":2})
 a1.update(a2)
 a1
 
-#subtract 减
+#subtract 减 b1-b2
 b1 = Counter(a=4,b=2,c=3)
 b2 = Counter(a=1,b=1,c=2)
 b1.subtract(b2)
 b1
+
+#清空
+cn.clear()
+
+#most_common()，返回一个列表，包含counter中n个最大数目的元素
+Counter('abracadabra').most_common(3)
+# [('a', 5), ('r', 2), ('b', 2)]
 ```
 
 ### 2.deque(类似于列表)
@@ -87,5 +94,32 @@ b1
   d.reverse()
   ```
 
-  
+
+### defaultdict
+
+defaultdict是内置数据类型dict的一个子类，基本功能与dict一样，只是重写了一个方法
+
+```python
+# 使用list作为default_factory，很容易将一个key-value的序列转换为一个关于list的词典
+from collections import defaultdict
+s = [('yellow',1),('blue',2),('yellow',3),('blue',4),('red',5)]
+d = defaultdict(list)
+for k,v in s:
+    d[k].append(v)
+d.items()
+
+#用于计数
+s = "aaabbccde"
+d = defaultdict(int)
+for k in s:
+    d[k] += 1
+d.items()
+
+#使用set作为default_factory 转换为set
+s = [('red', 1), ('blue', 2), ('red', 3), ('blue', 4), ('red', 1), ('blue',4)]
+d = defaultdict(set)
+for k,v in s:
+    d[k].add(v)
+d.items()
+```
 

@@ -46,7 +46,7 @@ class Solution:
     def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
 
         # 判断是否大于等于k个元素
-        def cal_len(head):
+        def cal_len(head, k):
             p = head
             count = 0
             while p is not None:
@@ -78,3 +78,4 @@ class Solution:
             return pre
         return dfs(head, k)
 ```
+
