@@ -51,3 +51,35 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> hashmap = new HashMap<>();
+      	// 通过hashmap给nums
+        for (int num : nums){
+            hashmap.put(num, hashmap.getOrDefault(num, 0) + 1);
+        }
+      	// 使用小顶堆
+        PriorityQueue<Integer> heap = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer a, Integer b) {
+                return hashmap.get(a) - hashmap.get(b);
+            }
+        });
+        for (Integer key : hashmap.keySet()){
+            if (heap.size() < k){
+                heap.add(key);
+            }else if (hashmap.get(heap.peek()) < hashmap.get(key)){
+                heap.poll();
+                heap.add(key);
+            }
+        }
+        int[] res = new int[k];
+        for (int i = 0; i < k; i++){
+            res[i] = heap.poll();
+        }
+        return res;
+    }
+}
+```
+

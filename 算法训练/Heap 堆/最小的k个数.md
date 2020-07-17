@@ -34,3 +34,11 @@ class Solution {
 }
 ```
 
+```python
+class Solution:
+    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+        import heapq
+        heapq.heapify(arr)
+        return heapq.nsmallest(k, arr)
+```
+
