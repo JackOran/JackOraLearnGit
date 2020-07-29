@@ -71,7 +71,7 @@ class Solution:
                             queue.append([j, path + [j]])
                             visited.add(j)
             # 更新已经访问过的节点
-            # visited |= new_visited
+          	visited |= new_visited
 
         return res
 ```
