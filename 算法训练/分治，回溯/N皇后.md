@@ -14,7 +14,7 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         
-        board=[['.']*n for _ in range(n)] #初始化二维棋盘
+        board=[['.']*n for _ in range(n)] # 初始化二维棋盘
         # print(board)
         res=[]
         
@@ -66,5 +66,38 @@ class Solution:
                 board[row][col]='.'
         backtrack(board, 0)
         return res
+```
+
+```python
+def solveNQueens(self, n):
+    def DFS(queens, xy_dif, xy_sum):
+        p = len(queens)
+        if p==n:
+            result.append(queens)
+            return None
+        for q in range(n):
+            if q not in queens and p-q not in xy_dif and p+q not in xy_sum: 
+                DFS(queens+[q], xy_dif+[p-q], xy_sum+[p+q])
+    result = []
+    DFS([],[],[])
+    return [ ["."*i + "Q" + "."*(n-i-1) for i in sol] for sol in result]
+```
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        res = []
+        
+        def dfs(i, queens, pie, na):
+         		# 行到达n
+            if  i == n:
+                res.append(queens)
+                return
+            # 遍历列
+            for j in range(n):
+                if j not in queens and i-j not in pie and i+j not in na:
+                    dfs(i + 1, queens+[j], pie + [i-j], na + [i+j])
+        dfs(0, [], [], [])
+        return [['.' * i + 'Q' + '.' * (n - i - 1) for i in sol] for sol in res]
 ```
 
