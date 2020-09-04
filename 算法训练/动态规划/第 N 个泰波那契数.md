@@ -31,3 +31,33 @@ class Solution {
 }
 ```
 
+```python
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        
+        dp = {}
+        dp[0] = 0
+        dp[1] = 1
+        dp[2] = 1
+        for i in range(3, n+1):
+            dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
+        return dp[n]
+```
+
+#### 带有记忆化搜索的dp
+
+```python
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        
+        if n <= 1:
+            return n
+        memo = {0:0, 1:1, 2:1}
+        for i in range(3, n+1):
+            if i in memo:
+                return memo[i]
+            else:
+                memo[i] = memo[i-1] + memo[i-2] + memo[i-3]
+        return memo[n]
+```
+

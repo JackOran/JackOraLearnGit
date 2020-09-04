@@ -19,8 +19,6 @@ class LRUCache:
         if key in self.lrucache:
             self.lrucache.move_to_end(key)
         return self.lrucache.get(key, -1)
-        
-        
 
     def put(self, key: int, value: int) -> None:
         # 如果存在,删掉,重新赋值
@@ -31,7 +29,5 @@ class LRUCache:
         if len(self.lrucache) > self.maxsize:
             # 弹出字典的头部(因为存储空间不够了)
             self.lrucache.popitem(last = False)
-
-
 ```
 

@@ -20,7 +20,7 @@
 #### 二分查找
 
 - 抛物线
-- y = x ^ 2在y轴的右侧单调递增
+- y = **x ^ 2**在y轴的**右侧单调递增**
 - 具有上下界
 
 ```python
@@ -65,6 +65,28 @@ class Solution {
 }
 ```
 
+
+
+```python
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        
+        if x <= 1:
+            return x
+        left, right = 0, x//2
+        while left <= right:
+            mid = left + (right - left) // 2
+            if mid * mid == x:
+                return mid
+            elif mid * mid < x:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return right
+```
+
+
+
 #### 牛顿迭代法
 
 ```python
@@ -87,5 +109,25 @@ class Solution:
         while temp * temp > x:
             temp = (temp + x/temp) // 2
         return int(temp)
+```
+
+
+
+```python
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        
+        if x <= 1:
+            return x
+        left, right = 0, x//2
+        while left < right:
+            mid = left + (right - left + 1) // 2
+            if mid * mid == x:
+                return mid
+            elif mid * mid < x:
+                left = mid
+            else:
+                right = mid - 1
+        return right
 ```
 

@@ -79,3 +79,35 @@ class Solution:
         return dfs(head, k)
 ```
 
+<img src="https://pic.leetcode-cn.com/f63d5ca4d3f055ce8e4591c8bc51c288791f88da9ccec9617bc8bb51c26163a2.png" alt="img" style="zoom:50%;" />
+
+```python
+class Solution:
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        
+        if head == None or head.next == None:
+            return head
+        tail = head
+        # 剩余数量小于k不需要反转
+        for i in range(k):
+            if tail == None:
+                return head
+            tail = tail.next
+        
+        # 反转前k个元素
+        last = self.reverse(head, tail)
+        # 下一轮开始的位置就是tail
+        head.next = self.reverseKGroup(tail, k)
+        return last
+      
+    def reverse(self, head: ListNode, tail: ListNode) -> ListNode:
+        pre = None
+        while head != tail:
+            tmp = head.next
+            head.next = pre
+            pre = head
+            head = tmp
+        return pre
+```
+
+![image-20200903170118879](/Users/apple/Library/Application%20Support/typora-user-images/image-20200903170118879.png)

@@ -69,15 +69,63 @@ class Solution:
             return head
 ```
 
+
+
+```python
+class Solution:
+    def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
+				# 反转前n个节点
+        def reverseN(head, n):
+            if n == 1:
+                return head
+            last = reverseN(head.next, n - 1)
+            #指反转区间外的下一个节点
+            successor = head.next.next
+            head.next.next = head
+            head.next = successor
+            return last
+        # m = 1 相当于反转前n个节点
+        if m == 1:
+            return reverseN(head, n)
+        # 头节点连接的下一个节点是反转的最后一个节点
+        head.next = self.reverseBetween(head.next, m - 1, n - 1)
+        return head
+```
+
+
+
+```python
+class Solution:
+    def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
+        self.successor = None
+        def reverseN(head, n):
+            if n == 1:
+                self.successor = head.next
+                return head
+            last = reverseN(head.next, n - 1)
+            print(head.next)
+            # print(successor)
+            head.next.next = head
+            head.next = self.successor
+            return last
+        if m == 1:
+            return reverseN(head, n)
+        # 头节点连接的下一个节点是反转的最后一个节点
+        head.next = self.reverseBetween(head.next, m - 1, n - 1)
+        return head
+```
+
+
+
 ##### 迭代算法
 
-![WechatIMG3](/Users/apple/Desktop/document/WechatIMG3.jpeg)
+<img src="/Users/apple/Desktop/document/WechatIMG3.jpeg" alt="WechatIMG3" style="zoom: 33%;" />
 
 ```java
 class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {
         
-        ListNode dummy = new ListNode(-1);
+        ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode pre = dummy;
         for (int i = 1; i < m; i++){

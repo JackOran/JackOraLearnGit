@@ -30,6 +30,12 @@ public class Solution {
 }
 ```
 
+还是前面的龟兔赛跑, 当兔子追到乌龟的时候, 假设有**另外一只乌龟**从头节点开始往前爬, 每次也只爬一个节点, 那么**两只乌龟会在入环的节点相遇**
+
+<img src="https://pic.leetcode-cn.com/a5ff809a09bc095070f7bfd69e0a64667af6ecd186d39f770bd6bed14308e3e5-file_1587171759971" alt="img" style="zoom: 50%;" />
+
+<img src="https://pic.leetcode-cn.com/80bc5db4d5126dacbef822a01e7625b3dc767297a7bf4a87de3c300f92191aec-file_1587171759977" alt="img" style="zoom:50%;" />
+
 ```java
 public class Solution {
     public ListNode detectCycle(ListNode head) {
@@ -66,7 +72,7 @@ class Solution:
                 return head
             else:
                 hashSet.add(head)
-                head = head.next
+            		head = head.next
         return None
 ```
 

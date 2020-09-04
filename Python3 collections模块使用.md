@@ -123,3 +123,13 @@ for k,v in s:
 d.items()
 ```
 
+### OrderedDict
+
+OrderedDict类似于正常的词典，只是它记住了元素插入的顺序，当在有序的词典上迭代时，返回的元素就是它们第一次添加的顺序。
+
+**OrderedDict.popitem(last=True)**，popitem方法返回和删除一个(key,value)对，如果last=True，就以LIFO方式执行，否则以FIFO方式执行。
+
+```
+
+```
+
