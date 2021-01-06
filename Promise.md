@@ -13,7 +13,7 @@ const fn = new Fn();       // fn 是实例对象 Fn 是构造函数
 console.log(Fn.prototype); // Fn 是函数对象
 Fn.bind({});               // Fn是构造函数
 $('#test');                // JQuery 函数 
-$.get('/test');            // jQueey 函数对象
+$.get('/test');            // jQuery 函数对象
 ```
 
 ### 两种类型的回调函数
@@ -31,7 +31,8 @@ $.get('/test');            // jQueey 函数对象
   // 输出结果  135 forEach 之后
   ```
 
-- 
+  
+  
 
 #### 异步回调
 

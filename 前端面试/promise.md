@@ -61,7 +61,7 @@ new Promise(resolve => {
 
 ##### Promise.all() 批量执行
 
-Promise.all([p1, p2, p3])用于将多个promise实例，包装成一个新的Promise实例，返回的实例就是普通的**promise**
+Promise.all([p1, p2, p3])用于将**多个promise实例**，包装成一个新的Promise实例，返回的实例就是普通的**promise**
  它接收一个数组作为参数
  数组里可以是Promise对象，也可以是别的值，只有Promise会等待状态改变
  当所有的子Promise都完成，该Promise完成，返回值是**全部值的数组**
