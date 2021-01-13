@@ -61,7 +61,7 @@ validate() {
 //在form-item组件上通过inject来接收form
 
 //通过input组件this.$parent.$emit('validate')向父组件发送校验请求
-//父组件通过
+//父组件form-item通过
 this.$on('validate', () => {
 	this.validate()
     //this.validate通过一系列校验规则进行校验并且返回一个promise对象
@@ -89,5 +89,13 @@ validate(cb) {
           .catch(() => {cb(false)})
     }
   }
+```
+
+
+
+#### 实现弹窗组件
+
+```
+
 ```
 
