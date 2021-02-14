@@ -14,8 +14,7 @@
 - 多个异步等待合并便于解决
 
 ```js
-new Promise(
-  function (resolve, reject) {
+new Promise((resolve, reject) => {
     // 一段耗时的异步操作
     resolve('成功') // 数据处理完成
     // reject('失败') // 数据处理出错
@@ -26,8 +25,10 @@ new Promise(
 )
 ```
 
-resolve作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
- reject作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
+
+
+**resolve**作用是，将Promise对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；
+ **reject**作用是，将Promise对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。
 
 promise有三个状态：
  **1、pending[待定]初始状态**
@@ -61,7 +62,7 @@ new Promise(resolve => {
 
 ##### Promise.all() 批量执行
 
-Promise.all([p1, p2, p3])用于将多个promise实例，包装成一个新的Promise实例，返回的实例就是普通的**promise**
+Promise.all([p1, p2, p3])用于将**多个promise实例**，包装成一个新的Promise实例，返回的实例就是普通的**promise**
  它接收一个数组作为参数
  数组里可以是Promise对象，也可以是别的值，只有Promise会等待状态改变
  当所有的子Promise都完成，该Promise完成，返回值是**全部值的数组**
@@ -101,24 +102,26 @@ Promise.all([p1, p2, p3])用于将多个promise实例，包装成一个新的Pro
         })
 ```
 
+
+
 ##### Promise.race() 类似于Promise.all() ，区别在于它有任意一个完成就算完成
 
 ```js
 let p1 = new Promise(resolve => {
-        setTimeout(() => {
-            resolve('I\`m p1 ')
-        }, 1000)
-    });
+  setTimeout(() => {
+    resolve('I\`m p1 ')
+  }, 1000)
+});
 let p2 = new Promise(resolve => {
-        setTimeout(() => {
-            resolve('I\`m p2 ')
-        }, 2000)
-    });
+  setTimeout(() => {
+    resolve('I\`m p2 ')
+  }, 2000)
+});
 
-    Promise.race([p1, p2])
-        .then(value => {
-            console.log(value)
-        })
+Promise.race([p1, p2])
+  .then(value => {
+  console.log(value)
+})
 ```
 
 
