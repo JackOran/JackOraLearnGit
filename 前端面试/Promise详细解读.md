@@ -49,7 +49,7 @@ console.log('b');
 
 #### 错误的类型
 
-1. Error ： 所有错我的父类型
+1. Error ： 所有错误的父类型
 2. ReferenceError： 引用的变量不存在  `console.log(a)` ReferenceError : a sis not defined 没有捕获 error 下面的代码不会执行；
 3. TypeError： 数据类型不正确的错误  `TypeError`: Cannot read property 'xxx' of undefined
 4. RangeError ： 数据值不在其所允许的范围内 fn (){ fn()  }; fn();
